@@ -8,6 +8,7 @@
 #include "InvertTree.h"                 //  leetcode 226 翻转二叉树
 #include "LowestCommonAncester.h"       //  leetcode 235 二叉搜索树的最近公共祖先
 #include "KthSmallest.h"                //  leetcode 230 二叉搜索树中第k小的元素
+#include "LowestCommonAncestor.h"       //  leetcode 236 二叉树的最近公共祖先
 using namespace std;
 #include <vector>
 int main()
@@ -69,8 +70,13 @@ int main()
 //     TreeNode *t = so.invertTree(root);
 //     tree.recursiveInOrderTree(t);
 
-     KthSmallest so;
-     cout<<so.kthSmallest2(root, 3);
+//     KthSmallest so;
+//     cout<<so.kthSmallest2(root, 3);
+
+     LowestCommonAncestor1 so;
+     TreeNode *p = new TreeNode(1);
+     TreeNode *q = new TreeNode(1);
+     so.lowestCommonAncestor(root, p, q);
 
 //    Tree t;
 //    t.recursivePreOrderTree(root);
