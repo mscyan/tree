@@ -13,7 +13,7 @@ using namespace std;
 #include <vector>
 int main()
 {
-     TreeNode *root = new TreeNode(8);
+     TreeNode *root = new TreeNode(111);
 
      TreeNode *rl = new TreeNode(2);
      root->left = rl;
@@ -25,20 +25,20 @@ int main()
      TreeNode *rlr = new TreeNode(5);
      rl->right = rlr;
 
-//     TreeNode *rrl = new TreeNode(4);
-//     rr->left = rrl;
-//     TreeNode *rrr = new TreeNode(3);
-//     rr->right = rrr;
-//
-//     TreeNode *rrll = new TreeNode(7);
-//     rrl->left = rrll;
-//     TreeNode *rrlr = new TreeNode(8);
-//     rrl->right = rrlr;
-//
-//     TreeNode *rrrl = new TreeNode(9);
-//     rrr->left = rrrl;
-//     TreeNode *rrrr = new TreeNode(6);
-//     rrr->right = rrrr;
+     TreeNode *rrl = new TreeNode(4);
+     rr->left = rrl;
+     TreeNode *rrr = new TreeNode(3);
+     rr->right = rrr;
+
+     TreeNode *rrll = new TreeNode(7);
+     rrl->left = rrll;
+     TreeNode *rrlr = new TreeNode(8);
+     rrl->right = rrlr;
+
+     TreeNode *rrrl = new TreeNode(9);
+     rrr->left = rrrl;
+     TreeNode *rrrr = new TreeNode(6);
+     rrr->right = rrrr;
 
 //     IsValidBST so;
 //     cout<<so.isValidBST(root);
@@ -73,10 +73,30 @@ int main()
 //     KthSmallest so;
 //     cout<<so.kthSmallest2(root, 3);
 
+//     LowestCommonAncestor1 so;
+//     TreeNode *p = new TreeNode(1);
+//     TreeNode *q = new TreeNode(1);
+//     so.lowestCommonAncestor(root, p, q);
+
      LowestCommonAncestor1 so;
-     TreeNode *p = new TreeNode(1);
-     TreeNode *q = new TreeNode(1);
-     so.lowestCommonAncestor(root, p, q);
+//     TreeNode *p = new TreeNode(9);
+//     auto nodes = so.findNode(root, p);
+//     cout<<nodes.size()<<endl;
+//     while(!nodes.empty())
+//     {
+//          cout<<nodes.top()->val<<" ";
+//          nodes.pop();
+//     }
+//     cout<<endl;
+
+     TreeNode *q = new TreeNode(111);
+     auto nodes1 = so.findNode(root, q);
+     cout<<nodes1.size()<<endl;
+     while(!nodes1.empty())
+     {
+          cout<<nodes1.top()->val<<" ";
+          nodes1.pop();
+     }
 
 //    Tree t;
 //    t.recursivePreOrderTree(root);
