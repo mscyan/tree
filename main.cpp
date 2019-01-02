@@ -13,7 +13,7 @@ using namespace std;
 #include <vector>
 int main()
 {
-     TreeNode *root = new TreeNode(111);
+     TreeNode *root = new TreeNode(8);
 
      TreeNode *rl = new TreeNode(2);
      root->left = rl;
@@ -32,7 +32,7 @@ int main()
 
      TreeNode *rrll = new TreeNode(7);
      rrl->left = rrll;
-     TreeNode *rrlr = new TreeNode(8);
+     TreeNode *rrlr = new TreeNode(56);
      rrl->right = rrlr;
 
      TreeNode *rrrl = new TreeNode(9);
@@ -73,30 +73,20 @@ int main()
 //     KthSmallest so;
 //     cout<<so.kthSmallest2(root, 3);
 
-//     LowestCommonAncestor1 so;
-//     TreeNode *p = new TreeNode(1);
-//     TreeNode *q = new TreeNode(1);
-//     so.lowestCommonAncestor(root, p, q);
-
      LowestCommonAncestor1 so;
-//     TreeNode *p = new TreeNode(9);
-//     auto nodes = so.findNode(root, p);
-//     cout<<nodes.size()<<endl;
-//     while(!nodes.empty())
-//     {
-//          cout<<nodes.top()->val<<" ";
-//          nodes.pop();
-//     }
-//     cout<<endl;
+//     TreeNode *p = new TreeNode(5);
+//     TreeNode *q = new TreeNode(6);
+//     TreeNode *r = so.lowestCommonAncestor1(root, p, q);
+//     cout<<r->val<<" ";
+     Tree t;
+     TreeNode *ro = t.stringToTreeNode("[3,5,1,6,2,0,8,null,null,7,4]");
+//     t.recursiveInOrderTree(ro);
 
-     TreeNode *q = new TreeNode(111);
-     auto nodes1 = so.findNode(root, q);
-     cout<<nodes1.size()<<endl;
-     while(!nodes1.empty())
-     {
-          cout<<nodes1.top()->val<<" ";
-          nodes1.pop();
-     }
+     TreeNode *p = new TreeNode(5);
+     TreeNode *q = new TreeNode(4);
+     TreeNode *r = so.lowestCommonAncestor1(ro, p, q);
+     cout<<r->val<<" ";
+
 
 //    Tree t;
 //    t.recursivePreOrderTree(root);

@@ -23,57 +23,80 @@ public:
         return left && right ? root : left == nullptr ? right : left;
     }
 
-    TreeNode *noRecursiveToLCA(TreeNode *root, TreeNode *p, TreeNode *q)
+    //非递归求解过程
+    TreeNode *lowestCommonAncestor1(TreeNode *root, TreeNode *p, TreeNode *q)
+    {
+        if(root == nullptr)
+            return root;
+        if(root == p || root == q)
+            return root;
+
+        TreeNode *r = nullptr;
+        stack<TreeNode *> pList = noRecursiveToGetList(root, p);
+        stack<TreeNode *> qList = noRecursiveToGetList(root, q);
+        while(!pList.empty() && !qList.empty())
+        {
+            if(pList.top() == qList.top())
+            {
+                r = pList.top();
+                pList.pop();
+                qList.pop();
+            }
+            else if(pList.size() > 0 && qList.size() > 0  && pList.top() != qList.top())
+            {
+                break;
+            }
+        }
+        return r;
+    }
+private:
+    stack<TreeNode*> noRecursiveToGetList(TreeNode *root, TreeNode *targetNode)
     {
         //todo 能否用非递归的方式，求得本题的解？
-        //后序遍历，左右根，
-
-        return nullptr;
-    }
-
-    stack<TreeNode *> findNode(TreeNode *root, TreeNode *p)
-    {
-        TreeNode *flag = nullptr;
-        stack<TreeNode *> postStack;
-        stack<TreeNode *> listStack;
-        postStack.push(root);
-        TreeNode *cur = nullptr;
+        stack<TreeNode*> nodes;
         TreeNode *pre = nullptr;
+        TreeNode *cur = nullptr;
+        stack<TreeNode*> postStack;
+        postStack.push(root);
+        TreeNode *flag = nullptr;
+
         while(!postStack.empty())
         {
             cur = postStack.top();
             //如果是叶子节点
-            if(( cur->left == nullptr && cur->right == nullptr ) ||
-               ( ( pre == cur->right || pre == cur->left) && pre ))
+            if(cur->left == nullptr && cur->right == nullptr)
             {
-                if(!cur->left && !cur->right)
+                if(cur->val == targetNode->val)
                 {
-                    if(cur->val == p->val)
-                    {
-                        flag = cur;
-                        listStack.push(flag);
-                    }
-                    postStack.pop();
-                    pre = cur;
+                    //找到了这个节点，从此节点开始返回
+                    nodes.push(cur);
+                    flag = cur;
                 }
-                    //如果左右节点皆已遍历过
-                else if(pre && (cur->left == pre || cur->right == pre))
-                {
-                    if(flag == cur->left)
-                    {
-                        flag = cur;
-                        listStack.push(flag);
-                    }
-                    if(flag == cur->right)
-                    {
-                        flag = cur;
-                        listStack.push(flag);
-                    }
-                    postStack.pop();
-                    pre = cur;
-                }
+                postStack.pop();
+                pre = cur;
             }
-            //
+                //如果左右节点皆已访问过
+            else if(pre && (pre == cur->left || pre == cur->right))
+            {
+                if(cur->val == targetNode->val)
+                {
+                    flag = cur;
+                    nodes.push(flag);
+                }
+                if(flag == cur->left && flag != nullptr)
+                {
+                    flag = cur;
+                    nodes.push(flag);
+                }
+                if(flag == cur->right && flag != nullptr)
+                {
+                    flag = cur;
+                    nodes.push(flag);
+                }
+                postStack.pop();
+                pre = cur;
+            }
+                //
             else
             {
                 if(cur->right)
@@ -82,6 +105,7 @@ public:
                     postStack.push(cur->left);
             }
         }
-        return listStack;
+
+        return nodes;
     }
 };
