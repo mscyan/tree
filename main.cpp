@@ -9,6 +9,8 @@
 #include "LowestCommonAncester.h"       //  leetcode 235 二叉搜索树的最近公共祖先
 #include "KthSmallest.h"                //  leetcode 230 二叉搜索树中第k小的元素
 #include "LowestCommonAncestor.h"       //  leetcode 236 二叉树的最近公共祖先
+#include "RightSideView.h"              //  leetcode 199 二叉树的右视图
+#include "CountNodes.h"                 //  leetcode 222 完全二叉树的节点个数
 using namespace std;
 #include <vector>
 int main()
@@ -73,20 +75,29 @@ int main()
 //     KthSmallest so;
 //     cout<<so.kthSmallest2(root, 3);
 
-     LowestCommonAncestor1 so;
+//     LowestCommonAncestor1 so;
+////     TreeNode *p = new TreeNode(5);
+////     TreeNode *q = new TreeNode(6);
+////     TreeNode *r = so.lowestCommonAncestor1(root, p, q);
+////     cout<<r->val<<" ";
+//     Tree t;
+//     TreeNode *ro = t.stringToTreeNode("[3,5,1,6,2,0,8,null,null,7,4]");
+////     t.recursiveInOrderTree(ro);
+//
 //     TreeNode *p = new TreeNode(5);
-//     TreeNode *q = new TreeNode(6);
-//     TreeNode *r = so.lowestCommonAncestor1(root, p, q);
+//     TreeNode *q = new TreeNode(4);
+//     TreeNode *r = so.lowestCommonAncestor1(ro, p, q);
 //     cout<<r->val<<" ";
-     Tree t;
-     TreeNode *ro = t.stringToTreeNode("[3,5,1,6,2,0,8,null,null,7,4]");
-//     t.recursiveInOrderTree(ro);
 
-     TreeNode *p = new TreeNode(5);
-     TreeNode *q = new TreeNode(4);
-     TreeNode *r = so.lowestCommonAncestor1(ro, p, q);
-     cout<<r->val<<" ";
+//     RightSideView so;
+//     auto result = so.rightSideView(root);
+//     for(int i=0;i<result.size();i++)
+//     {
+//          cout<<result[i]<<" ";
+//     }
 
+     CountNodes so;
+     cout<<so.countNodes(root);
 
 //    Tree t;
 //    t.recursivePreOrderTree(root);
