@@ -9,27 +9,31 @@
 class NumTrees
 {
 public:
+    vector<int> t = {0,1};
     int numTrees(int n)
     {
         if(n == 0)
-            return 0;
+            return 1;
         if(n == 1)
             return 1;
 
-        int dp[n+1];
-        for(int i=0;i<n+1;i++)
+        else
         {
-            dp[i] = 0;
-        }
-        dp[1] = 1;
-        dp[0] = 1;
-        for(int i=2;i<=n;i++)
-        {
-            for(int j=0;j<i;j++)
+            if(n >= t.size())
             {
-                dp[i] = dp[i] + dp[j] * dp[i-j-1];
+                int count = 0;
+                for(int i=0;i<n;i++)
+                {
+                    count += (numTrees(i) * numTrees(n-1-i));
+                }
+                t.push_back(count);
+                return count;
+            }
+            else
+            {
+                return t[n];
             }
         }
-        return dp[n];
     }
 };
+//要点：一棵树根节点确定的情况下，可能的形态数量 应该是左右子树的个数相乘
