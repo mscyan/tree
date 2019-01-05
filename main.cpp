@@ -11,13 +11,15 @@
 #include "LowestCommonAncestor.h"       //  leetcode 236 二叉树的最近公共祖先
 #include "RightSideView.h"              //  leetcode 199 二叉树的右视图
 #include "CountNodes.h"                 //  leetcode 222 完全二叉树的节点个数
+#include "RecoverTree.h"                //  leetcode 99  恢复二叉搜索树
+#include "NumTrees.h"                   //  leetcode 96  不同的二叉搜索树
 using namespace std;
 #include <vector>
 int main()
 {
-     TreeNode *root = new TreeNode(8);
+     TreeNode *root = new TreeNode(6);
 
-     TreeNode *rl = new TreeNode(2);
+     TreeNode *rl = new TreeNode(15);
      root->left = rl;
      TreeNode *rr = new TreeNode(11);
      root->right = rr;
@@ -27,20 +29,20 @@ int main()
      TreeNode *rlr = new TreeNode(5);
      rl->right = rlr;
 
-     TreeNode *rrl = new TreeNode(4);
+     TreeNode *rrl = new TreeNode(8);
      rr->left = rrl;
-     TreeNode *rrr = new TreeNode(3);
+     TreeNode *rrr = new TreeNode(2);
      rr->right = rrr;
 
-     TreeNode *rrll = new TreeNode(7);
-     rrl->left = rrll;
-     TreeNode *rrlr = new TreeNode(56);
-     rrl->right = rrlr;
-
-     TreeNode *rrrl = new TreeNode(9);
-     rrr->left = rrrl;
-     TreeNode *rrrr = new TreeNode(6);
-     rrr->right = rrrr;
+//     TreeNode *rrll = new TreeNode(7);
+//     rrl->left = rrll;
+//     TreeNode *rrlr = new TreeNode(56);
+//     rrl->right = rrlr;
+//
+//     TreeNode *rrrl = new TreeNode(9);
+//     rrr->left = rrrl;
+//     TreeNode *rrrr = new TreeNode(6);
+//     rrr->right = rrrr;
 
 //     IsValidBST so;
 //     cout<<so.isValidBST(root);
@@ -96,8 +98,19 @@ int main()
 //          cout<<result[i]<<" ";
 //     }
 
-     CountNodes so;
-     cout<<so.countNodes(root);
+//     CountNodes so;
+//     cout<<so.countNodes(root);
+
+//     RecoverTree so;
+//     Tree t;
+//     t.noRecursiveInOrderTree(root);
+//     cout<<endl;
+//     so.recoverTree2(root);
+//     t.noRecursiveInOrderTree(root);
+
+     NumTrees so;
+     cout<<so.numTrees(4)<<endl;
+
 
 //    Tree t;
 //    t.recursivePreOrderTree(root);
