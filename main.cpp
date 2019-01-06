@@ -13,13 +13,14 @@
 #include "CountNodes.h"                 //  leetcode 222 完全二叉树的节点个数
 #include "RecoverTree.h"                //  leetcode 99  恢复二叉搜索树
 #include "NumTrees.h"                   //  leetcode 96  不同的二叉搜索树
+#include "BSTIterator.h"                //  leetcode 173 二叉搜索树迭代器
 using namespace std;
 #include <vector>
 int main()
 {
      TreeNode *root = new TreeNode(6);
 
-     TreeNode *rl = new TreeNode(15);
+     TreeNode *rl = new TreeNode(2);
      root->left = rl;
      TreeNode *rr = new TreeNode(11);
      root->right = rr;
@@ -31,7 +32,7 @@ int main()
 
      TreeNode *rrl = new TreeNode(8);
      rr->left = rrl;
-     TreeNode *rrr = new TreeNode(2);
+     TreeNode *rrr = new TreeNode(15);
      rr->right = rrr;
 
 //     TreeNode *rrll = new TreeNode(7);
@@ -108,8 +109,14 @@ int main()
 //     so.recoverTree2(root);
 //     t.noRecursiveInOrderTree(root);
 
-     NumTrees so;
-     cout<<so.numTrees(4)<<endl;
+//     NumTrees so;
+//     cout<<so.numTrees(4)<<endl;
+
+    BSTIterator2 *so = new BSTIterator2(root);
+    while(so->hasNext())
+    {
+         cout<<so->next()<<" ";
+    }
 
 
 //    Tree t;
