@@ -15,7 +15,10 @@
 #include "NumTrees.h"                   //  leetcode 96  不同的二叉搜索树
 #include "BSTIterator.h"                //  leetcode 173 二叉搜索树迭代器
 #include "MinDepth.h"                   //  leetcode 111 二叉树的最小深度
+#include "SumNumbers.h"                 //  leetcode 129 求根到叶子节点数字之和
+#include "BinaryTreePaths.h"            //  leetcode 257 二叉树的所有路径
 using namespace std;
+#include <string>
 #include <vector>
 int main()
 {
@@ -23,7 +26,7 @@ int main()
 
      TreeNode *rl = new TreeNode(2);
      root->left = rl;
-     TreeNode *rr = new TreeNode(11);
+     TreeNode *rr = new TreeNode(8);
      root->right = rr;
 
      TreeNode *rll = new TreeNode(1);
@@ -31,10 +34,10 @@ int main()
      TreeNode *rlr = new TreeNode(5);
      rl->right = rlr;
 
-//     TreeNode *rrl = new TreeNode(8);
-//     rr->left = rrl;
-//     TreeNode *rrr = new TreeNode(15);
-//     rr->right = rrr;
+     TreeNode *rrl = new TreeNode(8);
+     rr->left = rrl;
+     TreeNode *rrr = new TreeNode(7);
+     rr->right = rrr;
 
 //     TreeNode *rrll = new TreeNode(7);
 //     rrl->left = rrll;
@@ -120,11 +123,24 @@ int main()
 //    }
 
 
-     TreeNode *r = new TreeNode(1);
-     TreeNode *l = new TreeNode(5);
-     r->right = l;
-     MinDepth so;
-     cout<<so.minDepth(r)<<endl;
+//     TreeNode *r = new TreeNode(1);
+//     TreeNode *l = new TreeNode(5);
+//     r->right = l;
+//     MinDepth so;
+//     cout<<so.minDepth(r)<<endl;
+
+//     SumNumbers so;
+//     cout<<so.sumNumbers(root);
+
+
+//     cout<<char(50)<<endl;
+//     string s = "";
+//     s += char(50);
+//     cout<<s<<endl;
+//     BinaryTreePaths so;
+//     auto rv = so.binaryTreePaths(root);
+//     cout<<rv[0]<<endl;
+//     cout<<rv[1];
 
 
 //    Tree t;
