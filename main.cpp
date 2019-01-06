@@ -17,26 +17,27 @@
 #include "MinDepth.h"                   //  leetcode 111 二叉树的最小深度
 #include "SumNumbers.h"                 //  leetcode 129 求根到叶子节点数字之和
 #include "BinaryTreePaths.h"            //  leetcode 257 二叉树的所有路径
+#include "RobTree.h"                    //  leetcode 337 打家劫舍 III
 using namespace std;
 #include <string>
 #include <vector>
 int main()
 {
-     TreeNode *root = new TreeNode(6);
+     TreeNode *root = new TreeNode(3);
 
      TreeNode *rl = new TreeNode(2);
      root->left = rl;
-     TreeNode *rr = new TreeNode(8);
+     TreeNode *rr = new TreeNode(3);
      root->right = rr;
 
-     TreeNode *rll = new TreeNode(1);
-     rl->left = rll;
-     TreeNode *rlr = new TreeNode(5);
+//     TreeNode *rll = new TreeNode(1);
+//     rl->left = rll;
+     TreeNode *rlr = new TreeNode(3);
      rl->right = rlr;
 
-     TreeNode *rrl = new TreeNode(8);
-     rr->left = rrl;
-     TreeNode *rrr = new TreeNode(7);
+//     TreeNode *rrl = new TreeNode(8);
+//     rr->left = rrl;
+     TreeNode *rrr = new TreeNode(1);
      rr->right = rrr;
 
 //     TreeNode *rrll = new TreeNode(7);
@@ -142,6 +143,9 @@ int main()
 //     cout<<rv[0]<<endl;
 //     cout<<rv[1];
 
+
+     RobTree so;
+     cout<<so.robTree(root);
 
 //    Tree t;
 //    t.recursivePreOrderTree(root);
