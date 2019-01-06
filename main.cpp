@@ -14,6 +14,7 @@
 #include "RecoverTree.h"                //  leetcode 99  恢复二叉搜索树
 #include "NumTrees.h"                   //  leetcode 96  不同的二叉搜索树
 #include "BSTIterator.h"                //  leetcode 173 二叉搜索树迭代器
+#include "MinDepth.h"                   //  leetcode 111 二叉树的最小深度
 using namespace std;
 #include <vector>
 int main()
@@ -30,10 +31,10 @@ int main()
      TreeNode *rlr = new TreeNode(5);
      rl->right = rlr;
 
-     TreeNode *rrl = new TreeNode(8);
-     rr->left = rrl;
-     TreeNode *rrr = new TreeNode(15);
-     rr->right = rrr;
+//     TreeNode *rrl = new TreeNode(8);
+//     rr->left = rrl;
+//     TreeNode *rrr = new TreeNode(15);
+//     rr->right = rrr;
 
 //     TreeNode *rrll = new TreeNode(7);
 //     rrl->left = rrll;
@@ -112,11 +113,18 @@ int main()
 //     NumTrees so;
 //     cout<<so.numTrees(4)<<endl;
 
-    BSTIterator2 *so = new BSTIterator2(root);
-    while(so->hasNext())
-    {
-         cout<<so->next()<<" ";
-    }
+//    BSTIterator2 *so = new BSTIterator2(root);
+//    while(so->hasNext())
+//    {
+//         cout<<so->next()<<" ";
+//    }
+
+
+     TreeNode *r = new TreeNode(1);
+     TreeNode *l = new TreeNode(5);
+     r->right = l;
+     MinDepth so;
+     cout<<so.minDepth(r)<<endl;
 
 
 //    Tree t;
