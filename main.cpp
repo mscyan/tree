@@ -151,7 +151,6 @@ int main()
 
     //todo 构造二叉树
 
-    //todo 前缀树
     Trie so;
     so.insert("hello");
     so.insert("apple");
@@ -159,6 +158,9 @@ int main()
     cout<<so.startWith("hel")<<endl;
     cout<<so.startWith("as")<<endl;
     cout<<so.startWith("applica")<<endl;
+    cout<<so.startWith("helloworld")<<endl;
+    cout<<so.startWith("hello")<<endl;
+    cout<<so.startWith("hellow")<<endl;
 
 
 

@@ -59,6 +59,13 @@ public:
         cout<<root->size<<endl;
     }
 
+    //寻找前缀树中是否有这个字符串，不需要一定是前缀，在子树中也可以；
+    //思路：遍历，匹配每一个节点；
+    bool search(string word)
+    {
+        return false;
+    }
+
     bool startWith(string prefix)
     {
         if(root->size == 0)
