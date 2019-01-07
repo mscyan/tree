@@ -18,6 +18,8 @@
 #include "SumNumbers.h"                 //  leetcode 129 求根到叶子节点数字之和
 #include "BinaryTreePaths.h"            //  leetcode 257 二叉树的所有路径
 #include "RobTree.h"                    //  leetcode 337 打家劫舍 III
+#include "BuildTree.h"                  //  leetcode 105 先序+中序 -> 构造二叉树
+#include "Trie.h"                       //  leetcode 208 前缀树
 using namespace std;
 #include <string>
 #include <vector>
@@ -144,8 +146,21 @@ int main()
 //     cout<<rv[1];
 
 
-     RobTree so;
-     cout<<so.robTree(root);
+//     RobTree so;
+//     cout<<so.robTree(root);
+
+    //todo 构造二叉树
+
+    //todo 前缀树
+    Trie so;
+    so.insert("hello");
+    so.insert("apple");
+    so.insert("application");
+    cout<<so.startWith("hel")<<endl;
+    cout<<so.startWith("as")<<endl;
+    cout<<so.startWith("applica")<<endl;
+
+
 
 //    Tree t;
 //    t.recursivePreOrderTree(root);
