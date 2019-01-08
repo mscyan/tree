@@ -18,7 +18,7 @@
 #include "SumNumbers.h"                 //  leetcode 129 求根到叶子节点数字之和
 #include "BinaryTreePaths.h"            //  leetcode 257 二叉树的所有路径
 #include "RobTree.h"                    //  leetcode 337 打家劫舍 III
-//#include "BuildTree.h"                  //  leetcode 105 先序+中序 -> 构造二叉树
+#include "BuildTree.h"                  //  leetcode 105 先序+中序 -> 构造二叉树
 #include "Trie.h"                       //  leetcode 208 前缀树
 using namespace std;
 #include <string>
@@ -150,22 +150,42 @@ int main()
 //     cout<<so.robTree(root);
 
     //todo 构造二叉树
+//    int arr1[] = {3,9,20,15,7};
+//    int arr2[] = {9,3,15,20,7};
+//    vector<int> v1(arr1, arr1+5);
+//    vector<int> v2(arr2, arr2+5);
+//    BuildTree so;
+//    auto t1 = so.buildTree1(v1, v2);
+//
+//    Tree t;
+//    t.noRecursiveInOrderTree(t1);
+//    cout<<endl;
+//    t.noRecursivePreOrderTree(t1);
 
-    Trie so;
+    int arr1[] = {9,3,15,20,7};
+    int arr2[] = {9,15,7,20,3};
+    vector<int> v1(arr1, arr1+5);
+    vector<int> v2(arr2, arr2+5);
+    BuildTree so;
+    auto t2 = so.buildTree2(v1, v2);
+    Tree t;
+    t.noRecursiveInOrderTree(t2);
+    cout<<endl;
+    t.noRecursivePostOrderTree(t2);
+
+//    Trie so;
 //    so.insert("hello");
-    so.insert("aple");
+//    so.insert("apple");
 //    so.insert("application");
+//    so.insert("app");
+//    cout<<so.search("app")<<endl;
 //    cout<<so.startsWith("hel")<<endl;
 //    cout<<so.startsWith("as")<<endl;
 //    cout<<so.startsWith("applica")<<endl;
 //    cout<<so.startsWith("helloworld")<<endl;
 //    cout<<so.startsWith("hello")<<endl;
 //    cout<<so.startsWith("hellow")<<endl;
-//    cout<<so.search("hello")<<endl;
-//    cout<<so.search("hell")<<endl;
-    so.insert("ap");
-//    cout<<so.startsWith("app")<<endl;
-    cout<<so.search("ap")<<endl;
+//    cout<<so.startsWith("application")<<endl;
 
 
 
