@@ -14,7 +14,7 @@ struct NTreeNode
     T val;
     T size;
     vector<NTreeNode* > children;
-
+    bool isEnd = false;
     NTreeNode<T>() : size(0) {}
 
     NTreeNode<T>(T val) : val(val), size(1)

@@ -21,11 +21,27 @@ public:
         {
             return ;
         }
-//        vector<NTreeNode<char> *> childs = root->children;
-        bool hasWord = startWith(word);
-        if(!hasWord)
+        bool hasWord = startsWith(word);
+        //需要重新进入节点，并将末尾节点isEnd标为true；
+        if(hasWord)
         {
-//            NTreeNode<char> *newNode = new NTreeNode<char>(word[0]);
+            NTreeNode<char> *p = root;
+            for(int i=0;i<word.length();i++)
+            {
+                vector<NTreeNode<char> *> children = p->children;
+                for(auto t : children)
+                {
+                    if(t->val == word[i])
+                    {
+                        string ord = word.substr(i+1, word.length());
+                        p = t;
+                    }
+                }
+            }
+            p->isEnd = true;
+        }
+        else if(!hasWord)
+        {
             NTreeNode<char> *p = root;
             for(int i=0;i<word.length();i++)
             {
@@ -45,28 +61,58 @@ public:
                 {
                     //如果没有这个节点的话,表示不包含这个前缀
                     //此时需要重新构建子节点
+                    p->size ++;
                     for(int j=i;j<word.length();j++)
                     {
-                        p->size ++;
                         NTreeNode<char> *tmp = new NTreeNode<char>(word[j]);
                         p->children.push_back(tmp);
                         p = p->children[p->children.size()-1];
                     }
+                    p->isEnd = true;
                     return ;
                 }
             }
         }
-        cout<<root->size<<endl;
     }
 
-    //寻找前缀树中是否有这个字符串，不需要一定是前缀，在子树中也可以；
-    //思路：遍历，匹配每一个节点；
+    //search()函数主要是查找是否含有（匹配）这个word串，
+    // 如果是前缀，但尾字符的children还包含其他节点，则返回false
     bool search(string word)
     {
+        if(startsWith(word) == false)
+            return false;
+        else
+        {
+            NTreeNode<char> *p = root;
+            for(int i=0;i<word.length();i++)
+            {
+                vector<NTreeNode<char> *> children = p->children;
+                bool has = false;
+                for(auto t : children)
+                {
+                    if(t->val == word[i])
+                    {
+                        //表明存在这个字符
+                        string ord = word.substr(i+1, word.length());
+                        has = true;
+                        p = t;
+                    }
+                }
+                if(!has)
+                {
+                    //如果没有这个节点的话,表示不包含这个前缀
+                    return false;
+                }
+            }
+            if(p->isEnd)
+                return true;
+            else
+                return false;
+        }
         return false;
     }
 
-    bool startWith(string prefix)
+    bool startsWith(string prefix)
     {
         if(root->size == 0)
             return false;
